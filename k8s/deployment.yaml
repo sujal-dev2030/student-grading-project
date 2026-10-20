@@ -13,9 +13,10 @@ spec:
       labels:
         app: student-grade-app
     spec:
-      containers:
-        - name: student-grade-app
-          image: YOUR_DOCKERHUB_USERNAME/student-grade-devops:latest
+containers:
+  - name: student-grade-app
+    image: student-grade-devops:latest
+    imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 5000
           readinessProbe:
