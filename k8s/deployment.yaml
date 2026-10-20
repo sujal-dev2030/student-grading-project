@@ -13,10 +13,10 @@ spec:
       labels:
         app: student-grade-app
     spec:
-containers:
-  - name: student-grade-app
-    image: student-grade-devops:latest
-    imagePullPolicy: IfNotPresent
+      containers:
+        - name: student-grade-app
+          image: student-grade-devops:latest
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 5000
           readinessProbe:
