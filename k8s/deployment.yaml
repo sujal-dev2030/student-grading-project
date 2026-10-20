@@ -1,0 +1,26 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: student-grade-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: student-grade-app
+  template:
+    metadata:
+      labels:
+        app: student-grade-app
+    spec:
+      containers:
+        - name: student-grade-app
+          image: YOUR_DOCKERHUB_USERNAME/student-grade-devops:latest
+          ports:
+            - containerPort: 5000
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 5000
+            initialDelaySeconds: 5
+            periodSeconds: 10
